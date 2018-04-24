@@ -1,0 +1,18 @@
+{% extends "liveapp/header.html" %}
+ {% block content %}
+<form action="{%url 'liveapp:firstindex' %}" method="post">
+{% csrf_token %}
+<br>
+<table>
+   <tr><td><label for="hostname">Enter HostName / ip for remote:</label></td>
+       <td><input id="remote_ip" type="text" name="hostname_field" placeholder="i.e 10.120.36.5"></td></tr>
+       <tr><td><label for="username">Enter Usename:</label></td>
+        <td><input id="user" type="text" name="user_field" placeholder="i.e arun"> </td></tr>
+       <tr><td><label for="password">Enter your password : </label></td>
+	   
+    <td><input id="pswd" type="password" name="pswd_field"></td></tr>
+	
+ <tr><td><input type=submit value=Login /></td><td></td></tr>
+ </table>
+</form>
+{% endblock %}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>LIVE APP</title>
+	<meta charset="utf-8" />
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{% static 'personal/css/bootstrap.min.css' %}" type = "text/css"/>
+		<style type="text/css">
+		html,
+		body {
+		  height:100%
+		}
+	</style>
+</head>
+
+<body class="body" style="background-color:#f6f6f6">
+	<div class="container-fluid" style="min-height:70%; ">
+		<div class="row">
+					  <div class="col-sm-10">
+				  <br>
+				  <center>
+				  <h3>LIVE DATA </h3>
+				  </center>
+			  </div>
+		</div><hr>
+
+			   {% block content %}
+			   {% endblock %}
+			</div>
+<br>
+	<footer>
+		<div class="container-fluid" style='margin-left:15px'>
+            <h4>Live data Process </h4>
+			<a href="http://127.0.0.1:8000/">Login page</a>
+			</div>
+	</footer>
+
+</body>
+
+</html>

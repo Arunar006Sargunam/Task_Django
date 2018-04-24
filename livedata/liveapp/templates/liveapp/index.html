@@ -1,0 +1,31 @@
+{% extends "liveapp/header.html" %}
+ {% block content %}
+
+<form action="{%url 'liveapp:secondindex' %}" method="post">
+{% csrf_token %}
+<h1>Running Processes</h1>
+<table>
+<tr><th>SELECT</th>{% for header in header_ps %}<th>{{header}}</th>{% endfor %}
+{% for value in stdout1 %}
+	<tr><td><input type="radio" name="val" value="val"></td>{% for va2 in value %}
+	
+  <td>{{va2}}</td>
+  {% endfor %}</td></tr>
+{% endfor %}
+</table>
+<br>
+    <h1>Connection Status</h1>
+	<table>
+	<tr>{% for header2 in header_conn %}<th>{{header2}}</th>{% endfor %}
+	
+{% for item in stdout3 %}
+<tr>{% for va3 in item %}
+  <td>{{va3}}</td>
+  {% endfor %}</tr>
+ {% endfor %}
+ </table>
+ <input type=submit value=submit />
+ </table>
+</form>
+
+{% endblock %}
