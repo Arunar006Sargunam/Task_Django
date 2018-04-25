@@ -19,8 +19,8 @@ import re
 from .models import livedatas
 
 def server_login(request):
-
-	return render(request,'liveapp/login.html')
+	
+	return render(request,'liveapp/login.html',{'error':'Enter ur Server Details'})
 
 
 
@@ -36,7 +36,11 @@ def firstindex(request):
 
     sshObj  = paramiko.SSHClient()
     sshObj .set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    sshObj .connect(host, username=userid, password=passwd )
+    try:
+        sshObj .connect(host, username=userid, password=passwd )
+    except Exception as ERR:
+        print(ERR)
+        return render(request,'liveapp/login.html',{'error':"incorrect server Details"})
     stdin, stdout, stderr = sshObj .exec_command(pscmd)
     stdin2, stdout2, stderr2 = sshObj .exec_command(netstat)
     stdout1=stdout.readlines()
